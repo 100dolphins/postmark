@@ -1,13 +1,13 @@
 {
-    "name": "dirtsimple/postmark",
+    "name": "100dolphins/postmark",
     "description": "Sync WP content from Markdown files",
     "type": "wp-cli-package",
-    "homepage": "https://github.com/dirtsimple/postmark/",
+    "homepage": "https://github.com/100dolphins/postmark/",
     "license": "MIT",
     "authors": [
         {
-            "name": "PJ Eby",
-            "homepage": "https://github.com/pjeby"
+            "name": "BB",
+            "homepage": "https://github.com/100dolphins"
         }
     ],
     "keywords": [
