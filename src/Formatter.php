@@ -36,27 +36,5 @@ class Formatter {
 		);
 		$env = Environment::createCommonMarkEnvironment();
 		$cfg = apply_filters('postmark_formatter_config', $cfg, $env);
-
-		static::addExtensions($env, $cfg['extensions']);
-		unset( $cfg['extensions'] );
 		return new CommonMarkConverter($cfg, $env);
 	}
-
-	protected static function addExtensions($env, $exts) {
-		foreach ($exts as $ext => $args) {
-			if ( false === $args ) continue;
-			$extClass = new \ReflectionClass($ext);
-			static::addExtension($env, $ext, $extClass->newInstanceArgs((array) $args));
-		}
-	}
-
-	protected static function addExtension($env, $name, $ext) {
-		switch (true) {
-		case $ext instanceof Extension\ExtensionInterface                 : $env->addExtension($ext);         break;
-		case $ext instanceof Block\Parser\BlockParserInterface            : $env->addBlockParser($ext);       break;
-		case $ext instanceof Inline\Parser\InlineParserInterface          : $env->addInlineParser($ext);      break;
-		default: throw new Error(__('Unrecognized extension type: %s', 'postmark'), $name);
-		}
-	}
-
-}
