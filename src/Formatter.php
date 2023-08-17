@@ -38,3 +38,4 @@ class Formatter {
 		$cfg = apply_filters('postmark_formatter_config', $cfg, $env);
 		return new CommonMarkConverter($cfg, $env);
 	}
+}
